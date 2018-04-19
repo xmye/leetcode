@@ -9,8 +9,7 @@ class Solution(object):
         s2 = set(list2)
         s = s1 & s2
         l = list(s)
-        output = []
-        count = []
+        output,count = [],[]
         c1,c2,c3 = 0,0,0
         for item in l:
             c1 = int(list1.index(item))
