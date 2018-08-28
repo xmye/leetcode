@@ -26,8 +26,6 @@ def merge_sort(lst):
     return merge(left,right)
 
 
-
-
 arr = [2, 8, 7, 1, 3, 5, 6, 4]
 print("initial array:\n", arr)
 merge_sort(arr)
