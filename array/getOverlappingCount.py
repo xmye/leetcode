@@ -1,3 +1,4 @@
+#  进军硅谷，array question：6 —— 8
 class interval:
 
     def __init__(self,lst):
@@ -62,14 +63,38 @@ def mergeInterval(A):
             res.append(A[i])
     return res
 
+def insertInterval(A,newInterval):
+    res = []
+    i,j = 0,0
+    if A == None or len(A) == 0:
+        return
+    while i < len(A):
+        if A[i].end < newInterval.start:
+            res.append(A[i])
+        i += 1
+    while j < len(A):
+        if A[j].end >= newInterval.start:
+            newInterval.start = min(A[j].start,newInterval.start)
+            newInterval.end = max(A[j].end,newInterval.end)
+        j += 1
+    res.append(newInterval)
+
+    return res
 
 A0 = interval([1,11])
 A1 = interval([10,15])
 A2 = interval([0,10])
 A3 = interval([20,30])
 
+b1 = interval([1,5])
+b2 = interval([6,10])
+
 A = [A0,A1,A2,A3]
+B = [b1,b2]
 # print("result array:\n",getOverlappingCount(A))
 res = mergeInterval(A)
 for i in range(len(res)):
     print(res[i].start,res[i].end)
+inres = insertInterval(B,interval([4,6]))
+for i in range(len(inres)):
+    print("insert result",inres[i].start,inres[i].end)
