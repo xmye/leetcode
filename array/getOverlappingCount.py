@@ -69,9 +69,7 @@ A2 = interval([0,10])
 A3 = interval([20,30])
 
 A = [A0,A1,A2,A3]
-print("initial array:\n",type(A))
 # print("result array:\n",getOverlappingCount(A))
 res = mergeInterval(A)
-print("result array:\n",type(res))
 for i in range(len(res)):
     print(res[i].start,res[i].end)
