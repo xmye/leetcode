@@ -4,6 +4,7 @@ class interval:
         self.start = lst[0]
         self.end = lst[1]
 
+
 class point:
     val = 0
     ty = 0
@@ -22,7 +23,7 @@ def quick_point(lst,first,last):
 def parition(lst,first,last):
     i = first - 1
     for j in range(first,last):
-        if lst[j].val <= lst[last].val:
+        if lst[j].start <= lst[last].start:
             i += 1
             lst[i],lst[j] = lst[j],lst[i]
     lst[i+1],lst[last] = lst[last],lst[i+1]
@@ -44,13 +45,33 @@ def getOverlappingCount(A):
             m = max(m,count)
         else:
             count -= 1
-
     return m
+
+def mergeInterval(A):
+    res = []
+    if A == None or len(A) == 0:
+        return
+    quick_point(A,0,len(A) - 1)
+    res.append(A[0])
+    for i in range(1,len(A)):
+        if res[len(res)-1].end >= A[i].start:
+            res[len(res)-1].end = A[i].end
+            if res[len(res)-1].start > A[i].start:
+                res[len(res)-1].start = A[i].start
+        else:
+            res.append(A[i])
+    return res
+
+
 A0 = interval([1,11])
 A1 = interval([10,15])
-A2 = interval([5,10])
+A2 = interval([0,10])
 A3 = interval([20,30])
 
 A = [A0,A1,A2,A3]
-print("initial array:\n",A)
-print("result array:\n",getOverlappingCount(A))
+print("initial array:\n",type(A))
+# print("result array:\n",getOverlappingCount(A))
+res = mergeInterval(A)
+print("result array:\n",type(res))
+for i in range(len(res)):
+    print(res[i].start,res[i].end)
