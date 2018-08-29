@@ -5,7 +5,7 @@ def checkPairable(arr,k):
         return
     count = [0]*len(arr)
     for i in arr:
-        count[i % k] += 1
+        count[i % k] += 1   # 将每个数 / k 的余数 存在 count 中。
     if count[0] % 2 != 0:
         return False
     if k % 2 == 0:
