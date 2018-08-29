@@ -1,6 +1,6 @@
-# def getTopK(arr,k):
 
-def quick_sort(arr,start,end,k):
+
+def getTopK(arr,start,end,k):
     div = partition(arr,start,end)
     while k-1 != div:
         if k-1 > div:
@@ -23,5 +23,5 @@ def partition(arr,start,end):
 
 arr = [2,8,7,1,3,5,6,4]
 print("initial array:\n",arr)
-l = quick_sort(arr,0,len(arr)-1,2)
+l = getTopK(arr,0,len(arr)-1,2)
 print("result array:\n",l)
