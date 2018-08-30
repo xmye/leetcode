@@ -1,6 +1,5 @@
 def getMissingPositive(arr):
     n = len(arr)
-    i = 0
     for i in range(len(arr)):
         if arr[i] > 0 and arr[i] < n:
             if (arr[i] - 1) != i and arr[arr[i]-1] != arr[i]:
@@ -10,10 +9,10 @@ def getMissingPositive(arr):
                 i -= 1
     print(arr)
     for i in range(len(arr)):
-        if arr[i] - 1 != i:
+        if arr[i] - 1 != i and arr[i] <= n:
             return i+1
     return n+1
 
-arr = [5,3,-1,2]
+arr = [5,3,1,2]
 print("initial array:\n",arr)
 print("result array:\n",getMissingPositive(arr))

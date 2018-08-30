@@ -69,5 +69,5 @@ print("result array:\n",findMedianSortedArray(arr1,arr2))
 
 # A,B两个有序数组，找出合并后的第k个数。找出A[i] B[j],使 i+j+1=k
 # 已知 i+j个元素，若A[i]>B[j]，则第k个元素为 B[j]。
-# 若不满足A[i]>B[j]，说明A数组过小，j>0,第k个元素为B[j],若j<0,说明A[i-1]为第k个元素。
+# 若不满足A[i]>B[j]，说明A 数组过小，j>0,第k个元素为B[j],若j<0,说明A[i-1]为第k个元素。
 
