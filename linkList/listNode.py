@@ -19,4 +19,4 @@ g4.next = g5
 g5.next = g6
 g6.next = g7
 g7.next = g8
-g8.next = g4
+# g8.next = g4
