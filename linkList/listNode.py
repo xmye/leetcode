@@ -29,8 +29,8 @@ g7.next = g8
 # g8.next = g4
 
 n1 = listNode(5)
-n2 = listNode(15)
-n3 = listNode(10)
+n2 = listNode(10)
+n3 = listNode(15)
 n4 = listNode(15)
 n5 = listNode(20)
 

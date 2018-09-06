@@ -18,7 +18,6 @@ def mergerTwoList(lst1,lst2):
         dummy.next = lst1
     return head.next
 
-
 # test
 n1 = listNode(5)
 n2 = listNode(15)
