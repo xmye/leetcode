@@ -69,7 +69,36 @@ def LCA4(root,p,q):
     backTracking = dict()
     pp,qq = Queue(),Queue()
 
+    while currLevel != None:
+        node = currLevel.get()
+        for child in node.child:
+            backTracking.put(child,node)
+            if child == p:
+                addParent(pp,p,backTracking)
+            elif child == q:
+                addParent(qq, q,backTracking)
+            if pp != None and qq != None:
+                return getLCA(pp,qq)
+            else:
+                nextLevel.put(child)
+        currLevel = nextLevel
+    return
 
+def addParent(que,q,bt):
+    parent = bt.get(q)
+    while parent != None:
+        que.put(parent)
+        parent = bt.get(parent)
+
+def getLCA(pp,qq):
+    while pp != None and qq != None:
+        pParent = pp.get()
+        qParent = qq.get()
+        if pParent == qParent:
+            result = pParent
+        else:
+            break
+    return result
 
 
 
