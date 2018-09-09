@@ -1,5 +1,6 @@
 import TreeNode
 from TreeNode import TreeNode
+import Queue
 
 # 二叉搜索树中的最小公共节点 左>中>右
 def LCA(root,p,q):
@@ -44,6 +45,32 @@ def LCA2(root,p,q):
         up2 = up2.parent
 
     return up1
+
+# 二叉树中搜索最小公共节点
+def LCA3(root,p,q):
+    if root == None or p == None or q == None:
+        return
+    if root == p or root == q:
+        return root
+    left = LCA3(root.left,p,q)
+    right = LCA3(root.right,p,q)
+    if left != None and right != None:
+        return root
+    if left == None and right != None:
+        return right
+    if right == None and left != None:
+        return left
+
+def LCA4(root,p,q):
+    if root == None or p == None or q == None:
+        return
+    currLevel,nextLevel = Queue(),Queue()
+    currLevel.put(root)
+    backTracking = dict()
+    pp,qq = Queue(),Queue()
+
+
+
 
 
 def findNode(root,p,q,pq):
